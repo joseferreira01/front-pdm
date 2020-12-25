@@ -25,12 +25,14 @@ const Header: React.FC<propHeader> = ({titulo}) => {
 const styles = StyleSheet.create({
   container:{
     backgroundColor:'#101010',
+    height:40,
     flexDirection: 'row',
     alignItems:'center',
     justifyContent: 'space-between',
     paddingRight: 20,
     paddingLeft: 20,
     borderWidth:2,
+    top:35,
     borderBottomColor: '#FFF'
 
   },
