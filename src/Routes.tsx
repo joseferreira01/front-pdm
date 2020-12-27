@@ -4,7 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack'
 import Header from  './components/Header';
 import home from './pages/Home'
-import  DetalhesDenuncia from "./pages/DenunciaDetalhes"
+import  DenunciaDetalhes from "./pages/DenunciaDetalhes"
 
 // import { Container } from './styles';
 const {Navigator, Screen} = createStackNavigator();
@@ -19,16 +19,12 @@ const Routes: React.FC = () => {
             header:()=><Header titulo='Denucias'/>}}
           />
            <Screen 
-            name=' DetalhesDenuncia' component={DetalhesDenuncia}  options={{
+            name='DenunciaDetalhes' component={DenunciaDetalhes}  options={{
             headerShown:true, 
-            header:()=><Header titulo=' Detalhes denuncia'/>}}
+            header:()=><Header titulo='Detalhes denuncia'/>}}
           />
           
         </Navigator>
-        
-       
-
-
     </NavigationContainer>
   );
 }
