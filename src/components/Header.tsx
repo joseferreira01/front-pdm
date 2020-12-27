@@ -1,47 +1,59 @@
 import React from 'react';
-import { View, Text,StyleSheet} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { BorderlessButton } from 'react-native-gesture-handler';
-import { Feather } from '@expo/vector-icons'; 
-import {useNavigation} from '@react-navigation/native'
+import { Feather } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native'
+
 // import { Container } from './styles';
-interface propHeader{
-  titulo:string;
-}
-const Header: React.FC<propHeader> = ({titulo}) => {
-  const navigation = useNavigation()
-  function goBackToListProducts(){
-    navigation.navigate('ListProducts');
-  }
-  
-  return (
-    <View style={styles.container}>
-      <BorderlessButton onPress={goBackToListProducts}>
-        <Feather name="arrow-left" size={24} color="blue" />
-      </BorderlessButton>
-      <Text style={styles.title}> {titulo} </Text>
-    </View>
-  );
-}
-const styles = StyleSheet.create({
-  container:{
-    backgroundColor:'#101010',
-    flexDirection: 'row',
-    alignItems:'center',
-    justifyContent: 'space-between',
-    paddingRight: 20,
-    paddingLeft: 20,
-    borderWidth:2,
-    borderBottomColor: '#FFF'
 
-  },
-  title:{
+interface HeaderProps{
+    title: string,
+    showX?: boolean
+}
 
-    color:'#FFF',
-    fontSize:20,
-    fontWeight:'bold',  
-    marginRight:100,
+const Header: React.FC<HeaderProps> = ({title, showX=true}) => {
     
-
+  const navigation = useNavigation()
+  function goback() {
+    navigation.navigate('inicio')
   }
-})
+    return (
+
+        <View style={styles.container}>
+            <BorderlessButton  onPress={goback}>
+                <Feather name='arrow-left' size={ 24 } color='black'></Feather>
+            </BorderlessButton>
+            <Text style={styles.title}> { title } </Text>
+
+        {showX ? (
+            <BorderlessButton>
+                <Feather name='x' size={ 24 } color='#ff669d'></Feather>
+            </BorderlessButton>
+            ):(
+                <View/>
+            )
+        }
+        </View>
+
+    );
+}
+
+const styles = StyleSheet.create({
+    container: {
+        padding: 24,
+        backgroundColor: '#f9fafc',
+        borderBottomWidth: 1,
+        borderColor: '#dde3f0',
+        paddingTop: 44,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    title: {
+       letterSpacing:2,
+        color: '#8fa7b3',
+        fontSize: 16,
+    }
+});
+
 export default Header;

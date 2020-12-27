@@ -1,8 +1,9 @@
 import React from 'react';
-import { View } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack'
-import ListProjects from './pages/LiatProjects'
+import inicio from './pages/inicio'
+import entar from './pages/entrar'
+import registrar from './pages/registrar'
 import ProjectsRegister from './pages/ProjectsRegister'
 import ProductsDetales from './pages/ProjectsDetalhes';
 import Header from  './components/Header';
@@ -15,18 +16,29 @@ const Routes: React.FC = () => {
       
         <Navigator screenOptions={{headerShown:false}}>
           <Screen 
-            name='ListProjects' component={ListProjects}  options={{
-            headerShown:true, 
-            header:()=><Header titulo='Lista Projetos'/>}}
+            name='inicio' component={inicio}  options={{
+            headerShown:false, 
+            }}
           />
+          <Screen
+           name='entar' component={entar}  options={{
+            headerShown:true, 
+            header:()=><Header title ='ENTAR' showX={false}/>}}
+           />
+           <Screen
+           name='registrar' component={registrar}  options={{
+            headerShown:true,
+            header:()=><Header title ='REGISTRAR' showX={false}/>}}
+           />
           <Screen
            name='ProjectsDetales' component={ProductsDetales}  options={{
             headerShown:true, 
-            header:()=><Header titulo='Detalhes Projetos'/>}}
+            header:()=><Header title ='Detalhes Projetos'/>}}
            />
+
           <Screen name='ProjectsRegister' component={ProjectsRegister}  options={{
             headerShown:true, 
-            header:()=><Header titulo='Tela de Cadastro'/>}}/>
+            header:()=><Header title='Tela de Cadastro'/>}}/>
         </Navigator>
         
        
