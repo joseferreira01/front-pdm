@@ -16,7 +16,7 @@ const Routes: React.FC = () => {
           <Screen 
             name='home' component={home}  options={{
             headerShown:true, 
-            header:()=><Header titulo='Denucias'/>}}
+            }}
           />
            <Screen 
             name='DenunciaDetalhes' component={DenunciaDetalhes}  options={{
