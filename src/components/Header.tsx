@@ -10,7 +10,7 @@ interface propHeader{
 const Header: React.FC<propHeader> = ({titulo}) => {
   const navigation = useNavigation()
   function goBackToListProducts(){
-    navigation.navigate('ListProducts');
+    navigation.navigate('EditeUser');
   }
   
   return (

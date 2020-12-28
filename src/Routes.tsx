@@ -2,10 +2,10 @@ import React from 'react';
 import { View } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack'
-import ListProjects from './pages/LiatProjects'
-import ProjectsRegister from './pages/ProjectsRegister'
-import ProductsDetales from './pages/ProjectsDetalhes';
+
 import Header from  './components/Header';
+import EditeUser from './pages/EditeUser';
+import Feed from './pages/Feed';
 
 // import { Container } from './styles';
 const {Navigator, Screen} = createStackNavigator();
@@ -15,18 +15,19 @@ const Routes: React.FC = () => {
       
         <Navigator screenOptions={{headerShown:false}}>
           <Screen 
-            name='ListProjects' component={ListProjects}  options={{
+            name='EditeUser' component={EditeUser}  options={{
             headerShown:true, 
-            header:()=><Header titulo='Lista Projetos'/>}}
+            header:()=><Header titulo='Editar Usuario'/>}}
           />
-          <Screen
-           name='ProjectsDetales' component={ProductsDetales}  options={{
+          <Screen 
+            name='Feed' component={Feed}  options={{
             headerShown:true, 
-            header:()=><Header titulo='Detalhes Projetos'/>}}
-           />
-          <Screen name='ProjectsRegister' component={ProjectsRegister}  options={{
-            headerShown:true, 
-            header:()=><Header titulo='Tela de Cadastro'/>}}/>
+            header:()=><Header titulo='Feed'/>}}
+          />
+          
+        
+          
+          
         </Navigator>
         
        
