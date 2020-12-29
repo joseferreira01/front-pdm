@@ -1,10 +1,12 @@
 import React ,{useState,useEffect} from 'react';
-import { View, ScrollView, StyleSheet,Text,TouchableOpacity,Image } from 'react-native';
+import { View, ScrollView, StyleSheet,Text,TouchableOpacity,Image,Dimensions } from 'react-native';
 import {Feather} from '@expo/vector-icons'
 import { RectButton } from 'react-native-gesture-handler';
 import api from '../services/api'
 import { useFocusEffect,useNavigation } from '@react-navigation/native';
 import {useRoute} from '@react-navigation/native';
+import mapMarker from "../../assets/mapMarker/Logo.png";
+import MapView, { PROVIDER_GOOGLE, Marker, Callout } from "react-native-maps";
 
 interface Denuncias {
     id: number;
@@ -53,12 +55,59 @@ const DetalhesDenuncia: React.FC = () => {
   return (
       <ScrollView>
           <View style={styles.container}>
-      <View style={styles.detailContainer}>
-      <Text style={styles.titleDenuncia}>{denuncia.titulo}</Text>
-      <Text style={styles.titleDenuncia}>{denuncia.data}</Text>
-      
+              <View>
+                   <Image
+                     style={styles.ItemDenunciaImage}
+                        source={{
+                          uri: denuncia.foto,
+                       }}
+                    />
+              </View>
+              <View style={styles.detailContainer}>
+                <Text style={styles.DataDenuncia}>{denuncia.data}</Text>
+             <Text style={styles.titleDenuncia}>{denuncia.titulo}</Text>
+                       <View>
+                       <MapView
+        style={styles.map}
+        provider={PROVIDER_GOOGLE}
+        initialRegion={{
+          latitude: -6.726797023982828,
+          longitude: -38.44958135713743,
+          latitudeDelta: 0.008,
+          longitudeDelta: 0.008,
+        }}
+      >
+       
+          <Marker
+            key={denuncia.id}
+            icon={mapMarker}
+            coordinate={{
+              latitude: denuncia.latitude,
+              longitude: denuncia.longitude,
+            }}
+            calloutAnchor={{
+              x: 2.7,
+              y: 0.8,
+            }}
+          >
+            <Callout tooltip={true} >
+              <View style={styles.calloutContainer}>
+               
+              </View>
+               </Callout>
+             </Marker>
+        
+              </MapView>
+          </View>
      
-      </View>
+         </View>
+         <View style={styles.containerEndereco}>
+         <Text style={styles.RuaDenuncia}>{denuncia.rua}</Text> 
+         <Text style={styles.BairroDenuncia}>{denuncia.bairro}</Text> 
+         <Text style={styles.CidadeDenuncia}>{denuncia.cidade}</Text> 
+         <Text style={styles.UfDenuncia}>{denuncia.uf}</Text>       
+         </View>
+         <Text style={styles.DescricaoDenuncia}>{denuncia.descricao}</Text> 
     </View>
       </ScrollView>
   )
@@ -82,7 +131,46 @@ const styles = StyleSheet.create({
         padding:20,
         backgroundColor:'#808000'
 
-    }
+    },
+    DataDenuncia:{
+
+    },
+    ItemDenunciaImage:{
+        width:400,
+        height:200,
+        padding:19
+    },
+    containerEndereco:{
+
+    },
+    RuaDenuncia:{
+        fontSize:25
+    },
+    BairroDenuncia:{
+        fontSize:25
+    },
+    CidadeDenuncia:{
+        fontSize:25
+    },
+    UfDenuncia:{
+        fontSize:25
+    },
+    DescricaoDenuncia:{
+
+    },
+  
+    ContainerMap:{
+
+    },
+    calloutContainer:{
+
+    },
+    map:{
+
+    },
+    ViewMap:{
+
+   }
 })
 
 export default DetalhesDenuncia;
