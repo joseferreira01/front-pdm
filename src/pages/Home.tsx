@@ -23,7 +23,8 @@ interface Denuncias {
     foto:string;
     numero:number;
     usuario_id:number;
-    ong_id:number
+    ong_id:number;
+    data:string
 
   }
 const Home: React.FC = () => {
