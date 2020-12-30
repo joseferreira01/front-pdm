@@ -5,6 +5,8 @@ import { RectButton } from 'react-native-gesture-handler';
 import api from '../services/api'
 import { useFocusEffect,useNavigation } from '@react-navigation/native';
 
+
+//seja profissional
 // import { Container } from './styles';
 interface Denuncias {
     id: number;
