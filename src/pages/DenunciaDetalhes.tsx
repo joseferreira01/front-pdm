@@ -39,7 +39,7 @@ const DetalhesDenuncia: React.FC = () => {
   
     useEffect(()=>{
 
-      api.get(`denuncia/${id}`).then(response=>{
+      api.post('/denuncia').then(response=>{
         setDenuncias(response.data);
         console.log('detale ',response.data)
         
