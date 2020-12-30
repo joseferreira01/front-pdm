@@ -43,6 +43,11 @@ const Home: React.FC = () => {
   };
   function denunciar(){
     //Nome da tela de cadastro de denuncias
+    navigation.navigate('DenuciaData');
+
+  }
+  function perfil(){
+    //Nome da tela de cadastro de denuncias
     navigation.navigate('EditeUser');
 
   }
@@ -89,7 +94,7 @@ const Home: React.FC = () => {
       <View  style={styles.ItemDenunciasContainer1}>
         <Text  style={styles.ToPageProfileText}> Perfil </Text>
         <RectButton style={styles.ToPageProfileDenunciaButton}
-          onPress={denunciar}
+          onPress={perfil}
         >
         <Feather name="arrow-down-circle" size={18} />
         </RectButton>
