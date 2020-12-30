@@ -14,8 +14,10 @@ interface HeaderProps{
 const Header: React.FC<HeaderProps> = ({title, showX=true}) => {
     
   const navigation = useNavigation()
+
   function goback() {
     navigation.navigate('inicio')
+
   }
     return (
 
