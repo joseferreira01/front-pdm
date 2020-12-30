@@ -5,26 +5,29 @@ import { BorderlessButton } from 'react-native-gesture-handler';
 import { useNavigation} from '@react-navigation/native';
 import api from '../services/api';
 
-
-interface logar{
-  email: String,
-  senha: String
-}
 export default function App(){
 
 
   const navigation = useNavigation();
 
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
+  const [email1, setEmail1] = useState('');
+  const [senha1, setSenha1] = useState('');
 
   async function handleLoginUser() {
-    const login = {
-       email,senha
-    }
-    api.post('usuario/login').then(res=>{
-      console.log(res.data);})
+
+   const login = {
+      email: email1,
+      senha: senha1
+   }
+
+   try {
+    await api.post('/usuario/login',login)
     navigation.navigate('Home');
+  } catch (error) {
+    alert("dados incorretos")
+    navigation.navigate('inicio')
+  
+  }
     
   }
     return (
@@ -35,8 +38,8 @@ export default function App(){
              <TextInput 
              style={styles.t1} placeholderTextColor='#A9A9A9' 
              placeholder='Ex: aras.strong8@gmail.com'
-             value={email}
-             onChangeText={text=>setEmail(text)}
+             value={email1}
+             onChangeText={text=>setEmail1(text)}
              ></TextInput>
              
              <TextInput 
@@ -44,8 +47,8 @@ export default function App(){
              secureTextEntry={true}  
              placeholderTextColor='#A9A9A9' 
              placeholder='Ex: Digite uma senha'
-             value={senha}
-             onChangeText={text=>setSenha(text)}
+             value={senha1}
+             onChangeText={text=>setSenha1(text)}
              ></TextInput>
              <BorderlessButton style={styles.btn}
               onPress={handleLoginUser}

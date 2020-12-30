@@ -39,9 +39,9 @@ const Home: React.FC = () => {
     // 
     navigation.navigate('DenunciaDetalhes',{id});
   };
-  function goToPageDenunciaRegiste(){
+  function denunciar(){
     //Nome da tela de cadastro de denuncias
-    navigation.navigate('nomeDaTela');
+    navigation.navigate('DenunciaDetalhes');
   }
   return (
       <ScrollView>
@@ -78,7 +78,7 @@ const Home: React.FC = () => {
        <View  style={styles.ItemDenunciasContainer1}>
         <Text  style={styles.createDenunciaText}> denunciar </Text>
         <RectButton style={styles.createDenunciaButton}
-          onPress={goToPageDenunciaRegiste}
+          onPress={denunciar}
         >
         <Feather name="plus" size={18} />
         </RectButton>
@@ -86,7 +86,7 @@ const Home: React.FC = () => {
       <View  style={styles.ItemDenunciasContainer1}>
         <Text  style={styles.ToPageProfileText}> Perfil </Text>
         <RectButton style={styles.ToPageProfileDenunciaButton}
-          onPress={goToPageDenunciaRegiste}
+          onPress={denunciar}
         >
         <Feather name="arrow-down-circle" size={18} />
         </RectButton>

@@ -5,7 +5,6 @@ import { BorderlessButton } from 'react-native-gesture-handler';
 import { useNavigation} from '@react-navigation/native';
 import api from '../services/api';
 
-
 export default function App(){
   const navigation = useNavigation();
 
@@ -13,23 +12,24 @@ export default function App(){
   const [telefone,setTelefone] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  
- 
 
-   function registar() {
-console.log('entrando em registrar')
-    function criarUsuario(){
-      const usuario ={
-        nome,
-        email,
-        telefone,
-        senha
-       
-      };
-    api.post('usuario').then(res=>{
-      console.log(res.data);})
-    navigation.navigate('Home');
-   };
+   async function registar() {
+
+    const usuario ={
+      nome,
+      email,
+      telefone,
+      senha
+    }
+    try {
+      await api.post('/usuario',usuario)
+      navigation.navigate('Home');
+    } catch (error) {
+      alert("dados incorretos")
+      navigation.navigate('inicio')
+    
+    }
+    
     
   }
     return (
