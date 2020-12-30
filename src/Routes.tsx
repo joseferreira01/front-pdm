@@ -15,6 +15,7 @@ import  DenunciaDetalhes from "./pages/DenunciaDetalhes";
 const {Navigator, Screen} = createStackNavigator();
 const Routes: React.FC = () => {
   return (
+    
     <NavigationContainer>
       
         <Navigator screenOptions={{headerShown:false}}>
@@ -72,6 +73,9 @@ const Routes: React.FC = () => {
           
     </Navigator>
   </NavigationContainer>
+          
+   
+
   );
 }
 
