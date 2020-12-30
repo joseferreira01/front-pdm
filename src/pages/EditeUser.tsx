@@ -16,6 +16,7 @@ interface propsId{
 }
  
 const EditeUser: React.FC = () => {
+  
   const navigation = useNavigation();
 
   
