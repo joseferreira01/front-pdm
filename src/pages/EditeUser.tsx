@@ -36,10 +36,10 @@ const EditeUser: React.FC = () => {
 
     
     await api.post(`usuario/editar/${id}`,usuario);
-    navigation.navigate('Feed');
+    navigation.navigate('Home');
   }
   async function cancelar(){
-    navigation.navigate('Feed');
+    navigation.navigate('Home');
   }
     
   const route = useRoute();
