@@ -39,7 +39,7 @@ const EditeUser: React.FC = () => {
     navigation.navigate('Home');
   }
   async function cancelar(){
-    navigation.navigate('Home');
+    navigation.navigate('Homegit ');
   }
     
   const route = useRoute();
