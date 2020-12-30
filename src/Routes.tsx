@@ -49,7 +49,7 @@ const Routes: React.FC = () => {
           />
           
           <Screen 
-            name='home' component={home}  options={{
+            name='Home' component={home}  options={{
             headerShown:true 
             }}
           />

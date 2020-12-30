@@ -5,25 +5,31 @@ import { BorderlessButton } from 'react-native-gesture-handler';
 import { useNavigation} from '@react-navigation/native';
 import api from '../services/api';
 
-interface logar{
-  email: String,
-  senha: String,
-  nome: String
-}
 
 export default function App(){
   const navigation = useNavigation();
 
   const [nome, setNome] = useState('');
+  const [telefone,setTelefone] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+  
+ 
 
-  async function handleLoginUser() {
-    const login = {
-       email,senha
-    }
-    await api.post('usuario/login');
-    navigation.navigate('feed');
+   function registar() {
+console.log('entrando em registrar')
+    function criarUsuario(){
+      const usuario ={
+        nome,
+        email,
+        telefone,
+        senha
+       
+      };
+    api.post('usuario').then(res=>{
+      console.log(res.data);})
+    navigation.navigate('Home');
+   };
     
   }
     return (
@@ -50,7 +56,15 @@ export default function App(){
             value={senha}
              onChangeText={text=>setSenha(text)}
             ></TextInput>
-             <BorderlessButton style={styles.btn}>
+            <TextInput style={styles.t1} 
+             placeholderTextColor='#A9A9A9'
+            placeholder='(88) 9 9915 1386'
+            value={telefone}
+             onChangeText={text=>setTelefone(text)}
+            ></TextInput>
+             <BorderlessButton 
+             style={styles.btn}
+             onPress={registar}>
                 <Text style={styles.txtbtn}>ok</Text>
             </BorderlessButton>
         </View>

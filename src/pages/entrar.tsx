@@ -5,6 +5,7 @@ import { BorderlessButton } from 'react-native-gesture-handler';
 import { useNavigation} from '@react-navigation/native';
 import api from '../services/api';
 
+
 interface logar{
   email: String,
   senha: String
@@ -21,8 +22,9 @@ export default function App(){
     const login = {
        email,senha
     }
-    await api.post('usuario/login');
-    navigation.navigate('feed');
+    api.post('usuario/login').then(res=>{
+      console.log(res.data);})
+    navigation.navigate('Home');
     
   }
     return (

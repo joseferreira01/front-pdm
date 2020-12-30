@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({title, showX=true}) => {
 }
 
 const styles = StyleSheet.create({
-<<<<<<< HEAD
+
     container: {
         padding: 24,
         backgroundColor: '#f9fafc',
@@ -55,28 +55,9 @@ const styles = StyleSheet.create({
         color: '#8fa7b3',
         fontSize: 16,
     }
-});
-=======
-  container:{
-    backgroundColor:'#101010',
-    height:40,
-    flexDirection: 'row',
-    alignItems:'center',
-    justifyContent: 'space-between',
-    paddingRight: 20,
-    paddingLeft: 20,
-    borderWidth:2,
-    top:35,
-    borderBottomColor: '#FFF'
-
-  },
-  title:{
-
-    color:'#FFF',
-    fontSize:20,
-    fontWeight:'bold',  
-    marginRight:100,
     
->>>>>>> 820ea75b92fb7125f7adf478659c912d71479e01
+});
+
+    
 
 export default Header;

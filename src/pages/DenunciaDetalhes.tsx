@@ -66,7 +66,7 @@ const DetalhesDenuncia: React.FC = () => {
               <View style={styles.detailContainer}>
                 <Text style={styles.DataDenuncia}>{denuncia.data}</Text>
              <Text style={styles.titleDenuncia}>{denuncia.titulo}</Text>
-                       <View style={ViewMap}>
+                       <View style={styles.ViewMap}>
                        <MapView
         style={styles.map}
         provider={PROVIDER_GOOGLE}
