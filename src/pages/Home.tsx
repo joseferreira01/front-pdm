@@ -4,7 +4,7 @@ import {Feather} from '@expo/vector-icons'
 import { RectButton } from 'react-native-gesture-handler';
 import api from '../services/api'
 import { useFocusEffect,useNavigation } from '@react-navigation/native';
-
+import {useRoute} from '@react-navigation/native';
 
 
 //seja profissional
@@ -28,9 +28,17 @@ interface Denuncias {
     data:string
 
   }
+  interface Usuario{
+    nome:string,
+    email:string,
+    telefone:string,
+    senha:string
+  }
 const Home: React.FC = () => {
+  const route = useRoute();
   const navigation = useNavigation();
   const [denuncias, setDenuncias] = useState<Denuncias[]>([]);
+  const usuario= route.params as Usuario;
   useFocusEffect(()=>{
     api.get('denuncia').then(res=>{
       setDenuncias(res.data);
@@ -45,7 +53,7 @@ const Home: React.FC = () => {
   function perfil(){
     //Nome da tela de cadastro de denuncias
 
-    navigation.navigate('nomeDaTela');
+    navigation.navigate('EditeUser',[usuario]);
 
   }
   return (

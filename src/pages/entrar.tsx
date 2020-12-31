@@ -22,7 +22,7 @@ export default function App(){
    try {
     const result = await api.post('/usuario/login',login)
     console.log(result.data)
-    navigation.navigate('Home',{erp: result.data});
+    navigation.navigate('Home',{erp: result.data.usuario});
   } catch (error) {
     alert("dados incorretos")
     navigation.navigate('inicio')
