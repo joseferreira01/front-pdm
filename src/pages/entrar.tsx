@@ -19,14 +19,13 @@ export default function App(){
       email: email1,
       senha: senha1
    }
-
    try {
-    await api.post('/usuario/login',login)
-    navigation.navigate('Home');
+    const result = await api.post('/usuario/login',login)
+    console.log(result.data)
+    navigation.navigate('Home',{erp: result.data.usuario});
   } catch (error) {
     alert("dados incorretos")
     navigation.navigate('inicio')
-  
   }
     
   }

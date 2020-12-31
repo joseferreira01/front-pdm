@@ -38,11 +38,10 @@ const DetalhesDenuncia: React.FC = () => {
     const {id} = route.params as propsId;
   
     useEffect(()=>{
-
-      api.get(`denuncia/${id}`).then(response=>{
+    
+      api.post(`denuncia/${id}`).then(response=>{
         setDenuncia(response.data);
-        console.log('detale ',response.data);
-        console.log(denuncia)
+        console.log('detale ',response.data)
         
       })
     },[id]);

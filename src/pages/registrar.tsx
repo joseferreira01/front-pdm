@@ -22,8 +22,8 @@ export default function App(){
       senha
     }
     try {
-      await api.post('/usuario',usuario)
-      navigation.navigate('inicio');
+      const result = await api.post('/usuario',usuario)
+      navigation.navigate('Home',{erp:result.data});
     } catch (error) {
       alert("dados incorretos")
       navigation.navigate('inicio')
