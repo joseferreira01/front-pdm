@@ -38,10 +38,10 @@ const DetalhesDenuncia: React.FC = () => {
     const {id} = route.params as propsId;
   
     useEffect(()=>{
-    
-      api.post(`denuncia/${id}`).then(response=>{
+      api.get(`denuncia/${id}`).then(response=>{
         setDenuncia(response.data);
-        console.log('detale ',response.data)
+        console.log('detale ',response.data);
+        console.log(denuncia)
         
       })
     },[id]);
@@ -64,7 +64,7 @@ const DetalhesDenuncia: React.FC = () => {
                        }}
                     />
               </View>
-
+              <View style={styles.detailContainer}>
               
                 <Text style={styles.nome}>Nome denúncia:</Text>  
                 <Text style={styles.title}>{denuncia.titulo}</Text>
@@ -141,7 +141,7 @@ const DetalhesDenuncia: React.FC = () => {
          </View>
          
           
-    
+    </View>
       </ScrollView>
   )
 }
