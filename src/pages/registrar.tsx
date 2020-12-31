@@ -23,7 +23,7 @@ export default function App(){
     }
     try {
       await api.post('/usuario',usuario)
-      navigation.navigate('Home');
+      navigation.navigate('inicio');
     } catch (error) {
       alert("dados incorretos")
       navigation.navigate('inicio')
