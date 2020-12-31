@@ -90,7 +90,7 @@ const DetalhesDenuncia: React.FC = () => {
             key={denuncia.id}
             icon={mapMarker}
             coordinate={{
-              latitude: denuncia.latitude,
+              latitude:  denuncia.latitude,
               longitude: denuncia.longitude,
             }}
             calloutAnchor={{

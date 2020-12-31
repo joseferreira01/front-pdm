@@ -32,13 +32,17 @@ interface Denuncias {
     nome:string,
     email:string,
     telefone:string,
-    senha:string
+    senha:string,
+    id: Number
+  }
+  interface prop_id{
+    id: number
   }
 const Home: React.FC = () => {
   const route = useRoute();
   const navigation = useNavigation();
   const [denuncias, setDenuncias] = useState<Denuncias[]>([]);
-  const usuario= route.params as Usuario;
+  const {id} = route.params as prop_id;
   useFocusEffect(()=>{
     api.get('denuncia').then(res=>{
       setDenuncias(res.data);
@@ -46,6 +50,9 @@ const Home: React.FC = () => {
       
     })
   });
+  function denunciar() {
+    navigation.navigate('selectPosition')
+  }
   function goToPageDenunciaDetalhes(id:number){
     // 
     navigation.navigate('DenunciaDetalhes',{id});
@@ -53,7 +60,7 @@ const Home: React.FC = () => {
   function perfil(){
     //Nome da tela de cadastro de denuncias
 
-    navigation.navigate('EditeUser',[usuario]);
+    navigation.navigate('EditeUser',{id});
 
   }
   return (
@@ -91,7 +98,7 @@ const Home: React.FC = () => {
        <View  style={styles.ItemDenunciasContainer1}>
         <Text  style={styles.createDenunciaText}> denunciar </Text>
         <RectButton style={styles.createDenunciaButton}
-          onPress={perfil}
+          onPress={denunciar}
         >
         <Feather name="plus" size={18} />
         </RectButton>

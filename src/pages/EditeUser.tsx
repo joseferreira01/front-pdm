@@ -10,6 +10,7 @@ interface Usuario{
   email:string;
   telefone:string;
   senha:string
+  id:Number
 }
 interface propsId{
   id:number;
@@ -24,17 +25,17 @@ const EditeUser: React.FC = () => {
   const [email,setEmail] = useState('');
   const [telefone, setTelefone]= useState('');
   const [senha, setSenha] = useState('');
+  const [id, setId] = useState('');
 
   async function saveEditeProfile(){
     const usuario = {
-      id: id,
       nome,
       email,
       telefone,
       senha
 
     }
-
+    const {id} = route.params as propsId
     
     await api.post(`usuario/editar/${id}`,usuario);
     navigation.navigate('Home');
@@ -46,11 +47,11 @@ const EditeUser: React.FC = () => {
   const route = useRoute();
 
   const [usuario,setUser]= useState<Usuario>();
-  const id = route.params as propsId;
-
+  const Usuario = route.params as Usuario;
+ console.log(Usuario)
   useEffect(()=>{
-
-    api.get(`usuario/${id}`).then(response=>{
+   
+    api.get(`usuario/${Usuario.id}`).then(response=>{
       setUser(response.data);
       console.log(response.data);
     })

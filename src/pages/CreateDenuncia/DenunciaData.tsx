@@ -130,7 +130,7 @@ const DenunciaData : React.FC = () => {
      
 
         imagesURI.forEach((imageURI, index) =>{
-            data.append('images',{
+            data.append('imagens',{
                 name:`image_${index}.jpg`,
                 type:'imag/jpg',
                 uri:imageURI
@@ -138,7 +138,7 @@ const DenunciaData : React.FC = () => {
         });
 
         await api.post("/denuncia",data);
-        navigation.navigate("Feed");
+        navigation.navigate("selectPosition");
 
     }
 
